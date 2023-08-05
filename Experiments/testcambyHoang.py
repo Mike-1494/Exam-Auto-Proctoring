@@ -7,7 +7,7 @@ model2 = YOLO('yolov8n-pose.pt')
 cap = cv2.VideoCapture(0)
 
 prev_frame_time = 0
-new_frame_time = 0
+new_frame_time = 0                                                                                                                               
 
 while True:
     ret, frame = cap.read() 
@@ -18,10 +18,10 @@ while True:
     result2 = model2(frame, save = False, device = 'cpu')
     keypoints = result2[0].keypoints
     keypoints_np = keypoints.numpy()
-    print(keypoints_np)
-    keypoints_np_reduce = np.squeeze(keypoints_np)
-    print(keypoints_np.shape)
-    print(keypoints_np_reduce.shape)
+    print(keypoints)
+    x, y = keypoints_np[0][1]
+    print(x)
+    print(y)
     #frame = result[0].plot()
     frame = result2[0].plot()
     new_frame_time = time.time()
