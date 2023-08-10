@@ -18,7 +18,7 @@ while True:
     result2 = model2(frame, save = False, device = 'cpu')
     keypoints = result2[0].keypoints
     keypoints_np = keypoints.numpy()
-    print(keypoints)
+    print(keypoints_np)
     x, y = keypoints_np[0][1]
     print(x)
     print(y)
